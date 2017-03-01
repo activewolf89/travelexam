@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    input{
+      display:block;
+    }
+    </style>
+  </head>
+  <body>
+    <h1> Add a Trip </h1>
+    <a href = "{% url 'First:my_index'  %}">Home </a>
+    <br>
+    <a href = "{% url 'Login:logout'  %}">Logout </a>
+
+    <form method = "post" action = "{% url 'First:create' %}">
+      {% csrf_token %}
+      Destination <input type = "text" name = "destination" required >
+      Description <input type = "text" name = "description" required>
+      Travel Date From <input type = "date" name = "datefrom" required>
+      Travel Date To <input type = "date" name = "dateto" required>
+      <input type = "submit" value = "Add">
+      {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+  </body>
+</html>

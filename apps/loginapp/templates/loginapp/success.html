@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> Success! Welcome, {{name.user.first_name}}
+ </h1>
+    <h3 style = "color:green"> Successfully registered(or logged in)!</h3>
+    <form method = "post" action = "{% url 'Login:logout' %}">
+      {% csrf_token %}
+      <input type = "submit" value = "logout">
+    </form>
+  </body>
+</html>
